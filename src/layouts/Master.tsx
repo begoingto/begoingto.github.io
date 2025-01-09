@@ -2,18 +2,26 @@ import {NavLink, Outlet} from "react-router";
 import {Bars3Icon, XMarkIcon} from "@heroicons/react/24/outline";
 import {Dialog, DialogPanel} from "@headlessui/react";
 import {useState} from "react";
-
-
-const navigation = [
-    {name: 'Home', href: '/', color: 'pink'},
-    {name: 'Experience', href: '#', color: 'green'},
-    {name: 'Projects', href: '/app', color: 'blue'},
-    {name: 'About', href: '/about', color: 'yellow'},
-]
+import {useTranslation, withTranslation} from "react-i18next";
 
 
 function Master() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+    const { t, i18n } = useTranslation();
+    //
+    const changeLanguage = (lng: string) => {
+        localStorage.setItem('lang', lng);
+        i18n.changeLanguage(lng);
+    }
+
+    const navigation = [
+        {name: t('home'), href: '/', color: 'text-pink-600'},
+        {name: t('experience'), href: '#', color: 'text-green-600'},
+        {name: t('project'), href: '/app', color: 'text-blue-600'},
+        {name: t('about'), href: '/about', color: 'text-yellow-600'},
+    ]
+
     return (
         <>
             <header className="absolute inset-x-0 top-0 z-50">
@@ -42,15 +50,20 @@ function Master() {
                     <div className="hidden lg:flex lg:gap-x-12">
                         {navigation.map((item) => (
                             <NavLink key={item.name} to={item.href}
-                               className={`lg font-extrabold leading-6 text-${item.color}-600 uppercase font-title`}>
+                                     className={`lg font-extrabold leading-6 ${item.color} uppercase font-title`}>
                                 {item.name}
                             </NavLink>
                         ))}
                     </div>
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                        <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                            Log in <span aria-hidden="true">&rarr;</span>
-                        </a>
+                        <button onClick={() => changeLanguage('kh')} type="button"
+                                className={`border border-blue-600 rounded p-0.5 shadow-md ${i18n.language == 'kh' && 'hidden'}`}>
+                            <img className={"w-10"} src="kh.jpg" alt="KH"/>
+                        </button>
+                        <button onClick={() => changeLanguage('en')} type="button"
+                                className={`border border-blue-600 rounded p-0.5 shadow-md ${i18n.language == 'en' && 'hidden'}`}>
+                            <img className={"w-10"} src="en.jpg" alt="KH"/>
+                        </button>
                     </div>
                 </nav>
                 <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
@@ -108,4 +121,4 @@ function Master() {
     );
 }
 
-export default Master;
+export default withTranslation()(Master);

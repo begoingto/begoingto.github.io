@@ -1,6 +1,9 @@
-import KeyWord  from "./KeyWord.tsx";
+import {useTranslation} from "react-i18next";
 
 function HeroSection() {
+
+    const { t } = useTranslation();
+
     return (
         <section className="relative isolate">
             <svg
@@ -44,20 +47,20 @@ function HeroSection() {
                 <div className="mx-auto max-w-7xl px-6 pb-32 pt-36 sm:pt-60 lg:px-8 lg:pt-32">
                     <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
                         <div className="relative w-full max-w-2xl lg:shrink-0 xl:max-w-3xl">
-                            <h1 className="text-4xl font-bold tracking-tight text-blue-600 sm:text-6xl font-title leading-4">
-                                Welcome's to NEUY MICH <br/> BEGOINGTO
+                            <h1 className="text-3xl font-bold tracking-tight text-blue-600 sm:text-6xl font-title sm:leading-[1.5]">
+                                {t('headline')}
                             </h1>
-                            <p className="mt-6 text-3xl leading-8 text-slate-300 sm:max-w-md lg:max-w-none font-base">
-                                <span className={"font-title text-pink-600"}>P</span>rofessional who works with <KeyWord text={"software development"}/> teams to create and maintain applications that run on cloud platforms.
+                            <p className="mt-6 text-3xl text-slate-300 sm:max-w-md lg:max-w-none font-base leading-[1.6]">
+                                {t('homeDesc')}
                             </p>
-                            <div className="mt-10 flex items-center gap-x-6">
+                            <div className="mt-10 flex justify-center items-center gap-x-6">
                                 <a
                                     href="#"
                                     className="rounded-md font-base bg-indigo-600 px-3.5 py-2.5 text-xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                 >
                                     Get started
                                 </a>
-                                <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+                                <a href="#" className="text-sm font-semibold leading-6 text-gray-200">
                                     Live demo <span aria-hidden="true">→</span>
                                 </a>
                             </div>

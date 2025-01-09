@@ -1,9 +1,13 @@
-import { useState } from 'react'
+import {useEffect, useState} from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 
 function Project() {
   const [count, setCount] = useState(0)
+
+    useEffect(() => {
+        document.title = 'Project - BEGOINGTO DEVOPS ENGINEER';
+    }, []);
 
   return (
     <section className={"mx-auto max-w-7xl mt-20"}>

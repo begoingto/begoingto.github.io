@@ -8,8 +8,8 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                'title': ['"Rubik Vinyl"', 'serif'],
-                'base': ['"Unkempt"', 'serif'],
+                'title': ['"Rubik Vinyl"','"Moulpali"', 'serif'],
+                'base': ['"Unkempt"','"Moulpali"', 'serif'],
             },
         },
     },
