@@ -3,7 +3,7 @@ import {initReactI18next} from "react-i18next";
 
 const kh = {
     home: 'ទំព័រដើម',
-    homeDesc: "អ្នកជំនាញដែលធ្វើការជាមួយក្រុមអភិវឌ្ឍន៍កម្មវិធីដើម្បីបង្កើត និងថែទាំកម្មវិធីដែលដំណើរការលើវេទិកាពពក។",
+    homeDesc: "ខ្ញុំពេញចិត្តនឹងការអភិវឌ្ឍន៍គេហទំព័រ និងការបង្កើនប្រសិទ្ធភាពដំណើរការចែកចាយកម្មវិធី ដែលធ្វើអោយប្រសើរឡើងនូវប្រសិទ្ធភាពប្រតិបត្តិការ ការងារស្វ័យប្រវត្តិ ការអនុវត្តវិធានការសុវត្ថិភាពដ៏រឹងមាំ និងធានាការរួមបញ្ចូលយ៉ាងរលូនរវាងការអភិវឌ្ឍន៍ និងបរិស្ថានផលិតកម្ម។",
     experience: "បទពិសោធន៍",
     project: "គម្រោង",
     about: "អំពីខ្ញុំ",
@@ -15,12 +15,12 @@ const kh = {
 
 const en = {
     home: 'Home',
-    homeDesc: "A DevOps Engineer who works with a team of experts to create and maintain software applications that run on the cloud.",
+    homeDesc: "I am passionate about web development and optimizing software delivery processes that improving operational efficiency, automating tasks, implementing robust security measures, and ensuring seamless integration between development and production environments.",
     experience: "Experience",
     project: "Project",
     about: "About",
     greeting: 'Hello world!',
-    headline: "Welcome's to BEGOINGTO DEVOPS ENGINEER",
+    headline: "Welcome's to <span class='bg-gradient-to-r from-orange-500 via-indigo-500 to-green-500 text-transparent bg-clip-text'>BEGOINGTO DevOps EngineeR</span>",
     messageCount: '{{count}} new message',
     messageCount_plural: '{{count}} new messages',
 };

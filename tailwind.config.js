@@ -8,8 +8,17 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                'title': ['"Rubik Vinyl"','"Moulpali"', 'serif'],
-                'base': ['"Unkempt"','"Moulpali"', 'serif'],
+                'title': ['"Bungee Shade"','"Moulpali"', 'serif'],
+                'title2': ['"Rubik Vinyl"','"Moulpali"', 'serif'],
+                'base': ['"Fira Code"','"Kantumruy Pro"', 'serif'],
+            },
+            animation: {
+                'border': 'border 4s linear infinite',
+            },
+            keyframes: {
+                'border': {
+                    to: { '--border-angle': '360deg' },
+                }
             },
         },
     },

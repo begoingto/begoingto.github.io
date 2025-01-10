@@ -1,14 +1,20 @@
 import {useTranslation} from "react-i18next";
+import {TypeAnimation} from "react-type-animation";
+import BParticles from "./BParticles.tsx";
+import ImgTilt from "./ImgTilt.tsx";
 
 function HeroSection() {
 
-    const { t } = useTranslation();
+    const {t, i18n} = useTranslation();
 
     return (
         <section className="relative isolate">
+            <img src="/kbach.png" className={"w-20 absolute top-0 left-0"} alt="kbach"/>
+            <img src="/kbach.png" className={"w-20 absolute top-0 right-0"} alt="kbach"/>
+            <BParticles/>
             <svg
                 aria-hidden="true"
-                className="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-gray-200 [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)]"
+                className="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-blue-900 [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)]"
             >
                 <defs>
                     <pattern
@@ -22,7 +28,7 @@ function HeroSection() {
                         <path d="M.5 200V.5H200" fill="none"/>
                     </pattern>
                 </defs>
-                <svg x="50%" y={-1} className="overflow-visible fill-gray-50">
+                <svg x="50%" y={-1} className="overflow-visible fill-gray-900">
                     <path
                         d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
                         strokeWidth={0}
@@ -46,11 +52,48 @@ function HeroSection() {
             <div className="overflow-hidden">
                 <div className="mx-auto max-w-7xl px-6 pb-32 pt-36 sm:pt-60 lg:px-8 lg:pt-32">
                     <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
-                        <div className="relative w-full max-w-2xl lg:shrink-0 xl:max-w-3xl">
-                            <h1 className="text-3xl font-bold tracking-tight text-blue-600 sm:text-6xl font-title sm:leading-[1.5]">
-                                {t('headline')}
+                        <div className="relative w-full max-w-2xl lg:shrink-0 xl:max-w-3xl z-[2]">
+                            <h1 className="text-3xl font-bold tracking-tight text-blue-600 sm:text-5xl font-title sm:leading-[1.5] text-center bg-gradient-to-r from-orange-500 via-indigo-500 to-green-500 text-transparent bg-clip-text">
+                                {i18n.language == 'en' ? (
+                                    <TypeAnimation
+                                        preRenderFirstString={true}
+                                        sequence={[
+                                            500,
+                                            'Welcome', // initially rendered starting point
+                                            1000,
+                                            'Welcome\'s to',
+                                            1000,
+                                            'Welcome\'s to BEGOINGTO ',
+                                            1000,
+                                            'Welcome\'s to BEGOINGTO DevOps EngineeR',
+                                            500,
+                                        ]}
+                                        speed={30}
+                                        repeat={Infinity}
+                                    />
+                                ) : (
+                                    <span>
+                                        <TypeAnimation
+                                            preRenderFirstString={true}
+                                            sequence={[
+                                                500,
+                                                'សូមស្វាគមន៍', // initially rendered starting point
+                                                1000,
+                                                'សូមស្វាគមន៍មកកាន់ ',
+                                                1000,
+                                                'សូមស្វាគមន៍មកកាន់ BEGOINGTO',
+                                                1000,
+                                                'សូមស្វាគមន៍មកកាន់ BEGOINGTO DevOps EngineeR',
+                                                500,
+                                            ]}
+                                            speed={30}
+                                            repeat={Infinity}
+                                        />
+                                    </span>
+                                )}
+                                {/*<Trans i18nKey="homeDesc" components={{ span: <span /> }}></Trans>*/}
                             </h1>
-                            <p className="mt-6 text-3xl text-slate-300 sm:max-w-md lg:max-w-none font-base leading-[1.6]">
+                            <p className="mt-6 text-base lg:text-2xl text-slate-300 sm:max-w-md lg:max-w-none font-base leading-[1.6]">
                                 {t('homeDesc')}
                             </p>
                             <div className="mt-10 flex justify-center items-center gap-x-6">
@@ -70,51 +113,31 @@ function HeroSection() {
                             <div
                                 className="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
                                 <div className="relative">
-                                    <img
-                                        alt=""
-                                        src="/me-with-laptop.jpg"
-                                        className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
-                                    />
+                                    <ImgTilt src={"/me/3.jpg"} className={"bg-gradient-to-b img-rotate-y"} />
                                     <div
                                         className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"/>
                                 </div>
                             </div>
                             <div className="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36">
                                 <div className="relative">
-                                    <img
-                                        alt=""
-                                        src="/me-with-laptop.jpg"
-                                        className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover object-right shadow-lg"
-                                    />
+                                    <ImgTilt src={"/me-with-laptop.jpg"} className={"object-right"} />
                                     <div
                                         className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"/>
                                 </div>
                                 <div className="relative">
-                                    <img
-                                        alt=""
-                                        src="/me-with-laptop.jpg"
-                                        className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
-                                    />
+                                    <ImgTilt src={"/me/2.jpg"} className={"img-rotate-x"} />
                                     <div
                                         className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"/>
                                 </div>
                             </div>
                             <div className="w-44 flex-none space-y-8 pt-32 sm:pt-0">
                                 <div className="relative">
-                                    <img
-                                        alt=""
-                                        src="https://images.unsplash.com/photo-1670272504528-790c24957dda?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=left&w=400&h=528&q=80"
-                                        className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
-                                    />
+                                    <ImgTilt src={"/me/4.jpg"} className={"img-rotate-x"} />
                                     <div
                                         className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"/>
                                 </div>
                                 <div className="relative">
-                                    <img
-                                        alt=""
-                                        src="https://images.unsplash.com/photo-1670272505284-8faba1c31f7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80"
-                                        className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
-                                    />
+                                    <ImgTilt src={"/me/1.jpg"} className={"img-rotate-y"} />
                                     <div
                                         className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"/>
                                 </div>
