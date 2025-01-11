@@ -163,31 +163,31 @@ function HeroSection() {
                             <div
                                 className="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
                                 <div className="relative">
-                                    <ImgTilt src={"/me/3.jpg"} className={"bg-gradient-to-b img-rotate-y"}/>
+                                    <ImgTilt imgName={"me/dhbetr5etymfe0fyxopw"} className={"bg-gradient-to-b img-rotate-y"}/>
                                     <div
                                         className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"/>
                                 </div>
                             </div>
                             <div className="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36">
                                 <div className="relative">
-                                    <ImgTilt src={"/me-with-laptop.jpg"} className={"object-right"}/>
+                                    <ImgTilt imgName={"me/atfmpjbskba1guj4oyqs"} className={"object-right"}/>
                                     <div
                                         className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"/>
                                 </div>
                                 <div className="relative">
-                                    <ImgTilt src={"/me/2.jpg"} className={"img-rotate-x"}/>
+                                    <ImgTilt imgName={"me/xsqgjmo4mjyqzqvap2j4"} className={"img-rotate-x"}/>
                                     <div
                                         className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"/>
                                 </div>
                             </div>
                             <div className="w-44 flex-none space-y-8 pt-32 sm:pt-0">
                                 <div className="relative">
-                                    <ImgTilt src={"/me/4.jpg"} className={"img-rotate-x"}/>
+                                    <ImgTilt imgName={"me/mcpjbsxuec8eo9nqxxgz"} className={"img-rotate-x"}/>
                                     <div
                                         className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"/>
                                 </div>
                                 <div className="relative">
-                                    <ImgTilt src={"/me/1.jpg"} className={"img-rotate-y"} />
+                                    <ImgTilt imgName={"me/idmhdyfimrqh2k2zpykp"} className={"img-rotate-y"} />
                                     <div
                                         className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"/>
                                 </div>

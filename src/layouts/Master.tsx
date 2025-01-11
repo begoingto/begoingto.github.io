@@ -3,13 +3,14 @@ import {Bars3Icon, XMarkIcon} from "@heroicons/react/24/outline";
 import {Dialog, DialogPanel} from "@headlessui/react";
 import {useState} from "react";
 import {useTranslation} from "react-i18next";
+import {Helmet} from "react-helmet";
 
 
 function Master() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const [lastScrollTop, setLastScrollTop] = useState(0);
 
-    const { t, i18n } = useTranslation();
-    //
+    const {t, i18n} = useTranslation();
     const changeLanguage = (lng: string) => {
         localStorage.setItem('lang', lng);
         i18n.changeLanguage(lng);
@@ -22,11 +23,40 @@ function Master() {
         {name: t('about'), href: '#', color: 'text-yellow-600'},
     ]
 
+    const handleScroll = () => {
+        const st = window.pageYOffset || document.documentElement.scrollTop;
+        const element = document.getElementById('begoingto-header');
+        if (st > lastScrollTop) {
+            element?.classList.remove('sticky');
+        } else {
+            element?.classList.add('sticky');
+        }
+        setLastScrollTop(st <= 0 ? 0 : st);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+
     return (
         <>
-            <header className="sticky inset-x-0 top-0 z-50">
+            <Helmet>
+                <title>BEGOINGTO DevOps Engineer</title>
+                <meta charSet="utf-8"/>
+                <meta name="description" content={t('home desc')}/>
+                <meta name="keywords" content={"azure devops ansible linuxfan devopsengineer devopstraining python coding docker devopsdays software devopslife devopstools jenkins kubernetes technology cloudcomputing cloud cloudengineer programming linuxuser devopscommunity awscloud developer github aws kalilinux softwaredeveloper softwareengineer linux"}/>
+                <link rel="canonical" href="https://begoingto.github.io"/>
+                <meta property="og:title" content="Begoingto DevOps Engineer"/>
+                <meta property="og:url" content="https://begoingto.github.io"/>
+                <meta property="og:image" content="/cover.jpg"/>
+                <meta property="og:description" content={t('home desc')}/>
+                <meta property="og:type" content="portfolio"/>
+                <meta name="twitter:title" content="Begoingto DevOps Engineer"/>
+                <meta name="twitter:description" content={t('home desc')}/>
+                <meta name="twitter:image" content="/cover.jpg"/>
+            </Helmet>
+            <header className="inset-x-0 top-0 z-50" id="begoingto-header">
                 <nav
-                     className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 bg-gray-900 rounded-lg">
+                    className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 bg-gray-900 rounded-full">
                     <div className="lg:flex-1"></div>
                     <div className="absolute top-0">
                         <NavLink to="/" className="-m-1.5 p-1.5">
