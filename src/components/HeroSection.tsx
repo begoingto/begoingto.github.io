@@ -2,6 +2,18 @@ import {useTranslation} from "react-i18next";
 import {TypeAnimation} from "react-type-animation";
 import BParticles from "./BParticles.tsx";
 import ImgTilt from "./ImgTilt.tsx";
+import {
+    FaGithub,
+    FaGitlab,
+    FaLinkedin,
+    FaSquareFacebook,
+    FaSquareXTwitter,
+    FaTelegram,
+    FaYoutube
+} from "react-icons/fa6";
+import {IconType} from "react-icons";
+import {createElement} from "react";
+import {twMerge} from "tailwind-merge";
 
 function HeroSection() {
 
@@ -91,21 +103,59 @@ function HeroSection() {
                                         />
                                     </span>
                                 )}
-                                {/*<Trans i18nKey="homeDesc" components={{ span: <span /> }}></Trans>*/}
+                                {/*<Trans i18nKey="home desc" components={{ span: <span /> }}></Trans>*/}
                             </h1>
                             <p className="mt-6 text-base lg:text-2xl text-slate-300 sm:max-w-md lg:max-w-none font-base leading-[1.6]">
-                                {t('homeDesc')}
+                                {t('home desc')}
                             </p>
-                            <div className="mt-10 flex justify-center items-center gap-x-6">
-                                <a
-                                    href="#"
-                                    className="rounded-md font-base bg-indigo-600 px-3.5 py-2.5 text-xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                            <div className="px-4 mx-auto text-center md:max-w-screen-md lg:max-w-screen-lg lg:px-36 mt-5">
+                                <span className="font-semibold text-blue-500 uppercase font-title2">{t('my social')}</span>
+                                <div
+                                    className="flex flex-wrap justify-center items-center mt-8 text-gray-500 sm:justify-between"
                                 >
-                                    Get started
-                                </a>
-                                <a href="#" className="text-sm font-semibold leading-6 text-gray-200">
-                                    Live demo <span aria-hidden="true">→</span>
-                                </a>
+                                    <FollowMeItem
+                                        href={"https://github.com/begoingto"}
+                                        icon={FaGithub}
+                                        text={"Github"}
+                                    />
+                                    <FollowMeItem
+                                        href={"https://gitlab.com/michdevops"}
+                                        icon={FaGitlab}
+                                        iconColor={"text-orange-600"}
+                                        text={"Gitlab"}
+                                    />
+                                    <FollowMeItem
+                                        href={"https://www.youtube.com/@begoingto2485"}
+                                        icon={FaYoutube}
+                                        iconColor={"text-red-500"}
+                                        text={"Youtube"}
+                                    />
+                                    <FollowMeItem
+                                        href={"https://twitter.com/begoingtoMe"}
+                                        icon={FaSquareXTwitter}
+                                        iconColor={"text-gray-500"}
+                                        text={"Twitter"}
+                                    />
+                                    <div></div>
+                                    <FollowMeItem
+                                        href={"https://www.facebook.com/begoingto.me"}
+                                        icon={FaSquareFacebook}
+                                        iconColor={"text-blue-500"}
+                                        text={"Facebook"}
+                                    />
+                                    <FollowMeItem
+                                        href={"https://t.me/mich_neuy"}
+                                        icon={FaTelegram}
+                                        iconColor={"text-cyan-600"}
+                                        text={"Telegram"}
+                                    />
+                                    <FollowMeItem
+                                        href={"https://www.linkedin.com/in/mich-n-933b041aa"}
+                                        icon={FaLinkedin}
+                                        iconColor={"text-blue-600"}
+                                        text={"Linkedin"}
+                                    />
+                                </div>
                             </div>
                         </div>
                         <div
@@ -113,26 +163,26 @@ function HeroSection() {
                             <div
                                 className="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
                                 <div className="relative">
-                                    <ImgTilt src={"/me/3.jpg"} className={"bg-gradient-to-b img-rotate-y"} />
+                                    <ImgTilt src={"/me/3.jpg"} className={"bg-gradient-to-b img-rotate-y"}/>
                                     <div
                                         className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"/>
                                 </div>
                             </div>
                             <div className="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36">
                                 <div className="relative">
-                                    <ImgTilt src={"/me-with-laptop.jpg"} className={"object-right"} />
+                                    <ImgTilt src={"/me-with-laptop.jpg"} className={"object-right"}/>
                                     <div
                                         className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"/>
                                 </div>
                                 <div className="relative">
-                                    <ImgTilt src={"/me/2.jpg"} className={"img-rotate-x"} />
+                                    <ImgTilt src={"/me/2.jpg"} className={"img-rotate-x"}/>
                                     <div
                                         className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"/>
                                 </div>
                             </div>
                             <div className="w-44 flex-none space-y-8 pt-32 sm:pt-0">
                                 <div className="relative">
-                                    <ImgTilt src={"/me/4.jpg"} className={"img-rotate-x"} />
+                                    <ImgTilt src={"/me/4.jpg"} className={"img-rotate-x"}/>
                                     <div
                                         className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"/>
                                 </div>
@@ -151,3 +201,16 @@ function HeroSection() {
 }
 
 export default HeroSection;
+
+const FollowMeItem = (props: { href: string, icon?: IconType, text: string, iconColor?: string, className?: string }) => {
+    const Icon = props.icon ? createElement(props.icon, {className: "w-16 h-16 "+props.iconColor}) : null;
+    return (
+        <a
+            href={props.href}
+            target={"_blank"}
+            className={twMerge("mr-5 mb-5 flex flex-col items-center lg:mb-0 hover:text-gray-800 dark:hover:text-gray-400", props.className)}
+        >
+            {Icon} <span className={"text-lg"}>{props.text}</span>
+        </a>
+    )
+}
